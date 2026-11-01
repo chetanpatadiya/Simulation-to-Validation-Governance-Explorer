@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#13314c" />
+  <meta name="description" content="SVG Explorer: transparent engineering model-use governance and packaging evidence routing. A research prototype, not a validation approval tool." />
+  <title>SVG Explorer · Simulation-to-Validation Governance</title>
+  <link rel="icon" href="./public/icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="Simulation-to-Validation Governance Explorer">
+      <span class="brand-glyph" aria-hidden="true">∴</span>
+      <div><strong>SVG Explorer</strong><small>SIMULATION → VALIDATION GOVERNANCE</small></div>
+    </div>
+    <div class="top-meta"><span class="version">RESEARCH PROTOTYPE · v0.1.0</span><span class="local-tag">LOCAL-FIRST · NO UPLOADS</span></div>
+  </header>
+  <div class="app-shell">
+    <aside class="left-nav">
+      <p class="overline">WORKSPACE</p>
+      <h1>Decision governance</h1>
+      <p class="aside-description">Connect model credibility to a specific packaging claim, evidence pathway, and controlled engineering decision.</p>
+      <nav aria-label="Assessment workflow" id="step-nav"></nav>
+      <div class="nav-foot">
+        <div class="statule">RESEARCH BASIS</div>
+        <p>EMSS 2026 proposed framework<br />ASME V&amp;V 40 · ISO 11607 · ISO 14971 · ISO 13485</p>
+        <p class="muted">Evidence planning only. No automated compliance or product release.</p>
+      </div>
+    </aside>
+    <main id="main">
+      <div class="main-toolbar">
+        <div class="scenario-select"><label for="examples">EXAMPLE SCENARIO</label><select id="examples"></select><button id="load-example" class="btn btn-secondary" type="button">Load example</button></div>
+        <div class="toolbar-actions"><button class="btn btn-quiet" data-action="new" type="button">New</button><button class="btn btn-quiet" data-action="import" type="button">Import JSON</button><button class="btn btn-quiet" data-action="save" type="button">Save locally</button></div>
+      </div>
+      <input id="import-file" type="file" accept=".json,application/json" hidden />
+      <div id="notice" role="status" aria-live="polite"></div>
+      <div class="workspace-grid">
+        <section class="work-pane" id="pane" aria-label="Assessment panel"></section>
+        <aside class="result-pane" id="summary" aria-label="Live decision assessment" aria-live="polite"></aside>
+      </div>
+      <footer><span>SVG-ALG-001 · 0.1.0</span><span>Proposed model-use authority ≠ regulatory approval</span></footer>
+    </main>
+  </div>
+</body>
+</html>
