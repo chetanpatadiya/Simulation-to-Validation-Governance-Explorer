@@ -1,0 +1,231 @@
+{
+  "reportType": "DRAFT_MODEL_USE_EVIDENCE_ROUTING",
+  "methodVersion": "SVG-ALG-001/0.1.0",
+  "scenario": {
+    "schemaVersion": "SVG-0.1",
+    "id": "C-COUPLED-ACTIVE-PATH",
+    "title": "Synthetic: interface-aware coupled model cap",
+    "provenance": "SYNTHETIC",
+    "phase": "process_development",
+    "requirementId": "EXAMPLE-REQ-01",
+    "requirementText": "Define and verify relevant sterile barrier packaging performance for the product and process.",
+    "acceptanceBasis": "Example criteria only — replace with approved design inputs before real use.",
+    "claim": "Recommend a candidate sealing window with operational feasibility supported by coupled process and line-flow models.",
+    "modelOutput": "Response-surface window combined with process execution and downtime estimates.",
+    "requestedLevel": 3,
+    "alignment": {
+      "outputAlignment": "DIRECT",
+      "mechanismCoverage": "FULL",
+      "couScope": "WITHIN",
+      "rationale": "Illustrative assumption confined to the described claim, output and tested domain."
+    },
+    "priority": {
+      "influence": 4,
+      "uncertainty": 4,
+      "consequence": 5,
+      "rationale": "Synthetic ordinal ratings for review-priority illustration; not a device-risk estimate."
+    },
+    "models": [
+      {
+        "id": "SEAL-RSM",
+        "kind": "statistical",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-SEAL-RSM-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      },
+      {
+        "id": "LINE-DES",
+        "kind": "DES",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-LINE-DES-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-LINE-DES-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-LINE-DES-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-LINE-DES-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-LINE-DES-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      },
+      {
+        "id": "IMAGE-AI",
+        "kind": "AI",
+        "active": false,
+        "gates": [
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-IMAGE-AI-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-IMAGE-AI-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-IMAGE-AI-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-IMAGE-AI-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-IMAGE-AI-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      }
+    ],
+    "interfaces": [
+      {
+        "id": "RSM-TO-DES",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "SYNTHETIC-INTERFACE-L0",
+          "SYNTHETIC-INTERFACE-L1",
+          "SYNTHETIC-INTERFACE-L2",
+          "SYNTHETIC-INTERFACE-L3",
+          "SYNTHETIC-INTERFACE-L4"
+        ],
+        "notes": "Synthetic interface evidence: verified units and benchmark, no independent end-to-end L3 evidence."
+      }
+    ],
+    "comparability": {
+      "enabled": false,
+      "transferRequired": false,
+      "delta": 2,
+      "alpha": 0.05,
+      "units": "lb",
+      "conditions": "",
+      "marginRationale": "",
+      "instances": [
+        {
+          "id": "E1",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E2",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        }
+      ]
+    },
+    "obligations": [
+      {
+        "id": "doe",
+        "title": "Physical DOE / process-window investigation",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "limits",
+        "title": "Confirm candidate settings and relevant boundary conditions",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      }
+    ],
+    "changeTriggers": "Material, tooling, equipment, data, algorithm or acceptance-criterion changes",
+    "exclusions": "No test waiver, product release or autonomous compliance decision."
+  },
+  "evaluation": {
+    "methodVersion": "SVG-ALG-001/0.1.0",
+    "scenarioId": "C-COUPLED-ACTIVE-PATH",
+    "priority": 80,
+    "comparison": {
+      "enabled": false,
+      "required": false,
+      "status": "NOT_REQUESTED",
+      "pairs": [],
+      "warnings": []
+    },
+    "tasks": {
+      "total": 2,
+      "open": 2,
+      "reviewed": 0,
+      "unresolved": [
+        "Physical DOE / process-window investigation",
+        "Confirm candidate settings and relevant boundary conditions"
+      ]
+    },
+    "gaps": [
+      {
+        "code": "LEVEL_CAP",
+        "message": "Unsupported L3 request; maximum is L1."
+      }
+    ],
+    "warnings": [
+      "Model SEAL-RSM is capped at L3: Monitored support gate is NOT_EVALUATED.",
+      "Model LINE-DES is capped at L1: Test prioritization gate is NOT_EVALUATED.",
+      "Interface RSM-TO-DES is capped at L2: Candidate recommendation gate is NOT_EVALUATED."
+    ],
+    "path": [
+      {
+        "type": "Model",
+        "id": "SEAL-RSM",
+        "level": 3,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ]
+      },
+      {
+        "type": "Model",
+        "id": "LINE-DES",
+        "level": 1,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ]
+      },
+      {
+        "type": "Interface",
+        "id": "RSM-TO-DES",
+        "level": 2,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ]
+      }
+    ],
+    "evidenceMax": 1,
+    "proposedLevel": 1,
+    "disposition": "DOWNGRADE_REQUIRED",
+    "explanation": "L3 was requested, but the active-path maximum is L1. Limiting dependencies: Model LINE-DES. Proposed narrower use: Compare alternatives during exploration.",
+    "scope": "Decision-support draft only. Human review and applicable physical evidence remain necessary."
+  },
+  "disclaimer": "Research-only synthetic or public aggregate demonstration; never a validated QMS record."
+}

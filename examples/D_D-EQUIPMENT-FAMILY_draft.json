@@ -1,0 +1,212 @@
+{
+  "reportType": "DRAFT_MODEL_USE_EVIDENCE_ROUTING",
+  "methodVersion": "SVG-ALG-001/0.1.0",
+  "scenario": {
+    "schemaVersion": "SVG-0.1",
+    "id": "D-EQUIPMENT-FAMILY",
+    "title": "Synthetic: bounding equipment comparison",
+    "provenance": "SYNTHETIC",
+    "phase": "process_validation",
+    "requirementId": "EXAMPLE-REQ-01",
+    "requirementText": "Define and verify relevant sterile barrier packaging performance for the product and process.",
+    "acceptanceBasis": "Example criteria only — replace with approved design inputs before real use.",
+    "claim": "Recommend a family-level candidate sealing condition transferable among E1, E2 and E3.",
+    "modelOutput": "Seal-strength mean estimate at one specified center-point condition.",
+    "requestedLevel": 3,
+    "alignment": {
+      "outputAlignment": "DIRECT",
+      "mechanismCoverage": "FULL",
+      "couScope": "WITHIN",
+      "rationale": "Illustrative assumption confined to the described claim, output and tested domain."
+    },
+    "priority": {
+      "influence": 4,
+      "uncertainty": 4,
+      "consequence": 5,
+      "rationale": "Synthetic ordinal ratings for review-priority illustration; not a device-risk estimate."
+    },
+    "models": [
+      {
+        "id": "SEAL-RSM",
+        "kind": "statistical",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-SEAL-RSM-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      }
+    ],
+    "interfaces": [],
+    "comparability": {
+      "enabled": true,
+      "transferRequired": true,
+      "units": "lb",
+      "alpha": 0.05,
+      "delta": 2,
+      "conditions": "Synthetic center point only; not the full process window.",
+      "marginRationale": "Illustrative ±2.0 lb margin; not a product-based justification.",
+      "instances": [
+        {
+          "id": "E1",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E2",
+          "mean": 25.2,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E3",
+          "mean": 24.4,
+          "sd": 1.5,
+          "n": 30
+        }
+      ]
+    },
+    "obligations": [
+      {
+        "id": "iq",
+        "title": "Review equipment/installation qualification applicability",
+        "category": "Process qualification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "oq",
+        "title": "Review operational qualification and worst-case process limits",
+        "category": "Process qualification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "pq",
+        "title": "Review performance qualification and routine reproducibility",
+        "category": "Process qualification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      }
+    ],
+    "changeTriggers": "Material, tooling, equipment, data, algorithm or acceptance-criterion changes",
+    "exclusions": "No test waiver, product release or autonomous compliance decision."
+  },
+  "evaluation": {
+    "methodVersion": "SVG-ALG-001/0.1.0",
+    "scenarioId": "D-EQUIPMENT-FAMILY",
+    "priority": 80,
+    "comparison": {
+      "enabled": true,
+      "required": true,
+      "status": "NOT_ESTABLISHED",
+      "pairs": [
+        {
+          "a": "E1",
+          "b": "E2",
+          "difference": 0.8000000000000007,
+          "se": 0.3872983346207417,
+          "df": 58,
+          "ci": [
+            0.15261039887053152,
+            1.44738960112947
+          ],
+          "pLower": 6.02920713355104e-10,
+          "pUpper": 0.001499319895658814,
+          "alpha": 0.05,
+          "delta": 2,
+          "established": true
+        },
+        {
+          "a": "E1",
+          "b": "E3",
+          "difference": 1.6000000000000014,
+          "se": 0.3872983346207417,
+          "df": 58,
+          "ci": [
+            0.9526103988705322,
+            2.2473896011294707
+          ],
+          "pLower": 2.1682655670929307e-13,
+          "pUpper": 0.15299348865967177,
+          "alpha": 0.05,
+          "delta": 2,
+          "established": false
+        },
+        {
+          "a": "E2",
+          "b": "E3",
+          "difference": 0.8000000000000007,
+          "se": 0.3872983346207417,
+          "df": 58,
+          "ci": [
+            0.15261039887053152,
+            1.44738960112947
+          ],
+          "pLower": 6.02920713355104e-10,
+          "pUpper": 0.001499319895658814,
+          "alpha": 0.05,
+          "delta": 2,
+          "established": true
+        }
+      ],
+      "warnings": [],
+      "scope": "Statistical mean equivalence at the stated test conditions only; not full operating-window or regulatory qualification."
+    },
+    "tasks": {
+      "total": 3,
+      "open": 3,
+      "reviewed": 0,
+      "unresolved": [
+        "Review equipment/installation qualification applicability",
+        "Review operational qualification and worst-case process limits",
+        "Review performance qualification and routine reproducibility"
+      ]
+    },
+    "gaps": [
+      {
+        "code": "TRANSFER",
+        "message": "Family-level promotion is blocked. Mean equivalence at tested conditions alone never proves full-window comparability."
+      }
+    ],
+    "warnings": [
+      "Model SEAL-RSM is capped at L3: Monitored support gate is NOT_EVALUATED.",
+      "Mean equivalence not established for every evaluated equipment comparison."
+    ],
+    "path": [
+      {
+        "type": "Model",
+        "id": "SEAL-RSM",
+        "level": 3,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ]
+      }
+    ],
+    "evidenceMax": null,
+    "proposedLevel": null,
+    "disposition": "SCOPE_TRANSFER_BLOCKED",
+    "explanation": "Claim requests cross-equipment transfer, but the requested mean-equivalence evidence is missing, incomplete or not established. Reframe to individual equipment or obtain justified transfer evidence.",
+    "scope": "Decision-support draft only. Human review and applicable physical evidence remain necessary.",
+    "localOnlyEvidenceMax": 3
+  },
+  "disclaimer": "Research-only synthetic or public aggregate demonstration; never a validated QMS record."
+}

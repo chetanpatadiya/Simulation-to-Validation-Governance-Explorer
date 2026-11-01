@@ -1,0 +1,163 @@
+{
+  "reportType": "DRAFT_MODEL_USE_EVIDENCE_ROUTING",
+  "methodVersion": "SVG-ALG-001/0.1.0",
+  "scenario": {
+    "schemaVersion": "SVG-0.1",
+    "id": "B-STRENGTH-NOT-INTEGRITY",
+    "title": "Synthetic: strength model cannot prove leak integrity",
+    "provenance": "SYNTHETIC",
+    "phase": "design_verification",
+    "requirementId": "EXAMPLE-REQ-01",
+    "requirementText": "Sterile barrier integrity must be demonstrated through relevant verified mechanisms.",
+    "acceptanceBasis": "Example criteria only — replace with approved design inputs before real use.",
+    "claim": "Sterile barrier system has no continuous leak pathways.",
+    "modelOutput": "Predicted mean seal peel strength (force).",
+    "requestedLevel": 3,
+    "alignment": {
+      "outputAlignment": "INDIRECT",
+      "mechanismCoverage": "PARTIAL",
+      "couScope": "WITHIN",
+      "rationale": "Peel strength is not a direct measure of continuous seal leak paths."
+    },
+    "priority": {
+      "influence": 5,
+      "uncertainty": 3,
+      "consequence": 5,
+      "rationale": "Hypothetical values for explaining scope mismatch."
+    },
+    "models": [
+      {
+        "id": "STRENGTH-RSM",
+        "kind": "statistical",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-STRENGTH-RSM-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-STRENGTH-RSM-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-STRENGTH-RSM-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-STRENGTH-RSM-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-STRENGTH-RSM-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      }
+    ],
+    "interfaces": [],
+    "comparability": {
+      "enabled": false,
+      "transferRequired": false,
+      "delta": 2,
+      "alpha": 0.05,
+      "units": "lb",
+      "conditions": "",
+      "marginRationale": "",
+      "instances": [
+        {
+          "id": "E1",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E2",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        }
+      ]
+    },
+    "obligations": [
+      {
+        "id": "strength",
+        "title": "Assess strength or opening-performance claims where relevant",
+        "category": "Physical verification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "integrity",
+        "title": "Assess sterile barrier integrity mechanisms where relevant",
+        "category": "Physical verification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "distribution",
+        "title": "Evaluate distribution/storage/sterilization effects as applicable",
+        "category": "Physical verification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "aging",
+        "title": "Evaluate aging and lifetime evidence as applicable",
+        "category": "Physical verification",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      }
+    ],
+    "changeTriggers": "Material, tooling, equipment, data, algorithm or acceptance-criterion changes",
+    "exclusions": "No test waiver, product release or autonomous compliance decision."
+  },
+  "evaluation": {
+    "methodVersion": "SVG-ALG-001/0.1.0",
+    "scenarioId": "B-STRENGTH-NOT-INTEGRITY",
+    "priority": 75,
+    "comparison": {
+      "enabled": false,
+      "required": false,
+      "status": "NOT_REQUESTED",
+      "pairs": [],
+      "warnings": []
+    },
+    "tasks": {
+      "total": 4,
+      "open": 4,
+      "reviewed": 0,
+      "unresolved": [
+        "Assess strength or opening-performance claims where relevant",
+        "Assess sterile barrier integrity mechanisms where relevant",
+        "Evaluate distribution/storage/sterilization effects as applicable",
+        "Evaluate aging and lifetime evidence as applicable"
+      ]
+    },
+    "gaps": [
+      {
+        "code": "ALIGNMENT",
+        "message": "The current model output, mechanisms or context do not fully support this claim."
+      }
+    ],
+    "warnings": [
+      "Model STRENGTH-RSM is capped at L3: Monitored support gate is NOT_EVALUATED."
+    ],
+    "path": [
+      {
+        "type": "Model",
+        "id": "STRENGTH-RSM",
+        "level": 3,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED"
+        ]
+      }
+    ],
+    "evidenceMax": null,
+    "proposedLevel": null,
+    "disposition": "CLAIM_NOT_SUPPORTED_OR_REFRAME",
+    "explanation": "Claim alignment not demonstrated: output INDIRECT, mechanism PARTIAL, context WITHIN. A narrower claim and/or independent physical evidence may be required.",
+    "scope": "Decision-support draft only. Human review and applicable physical evidence remain necessary."
+  },
+  "disclaimer": "Research-only synthetic or public aggregate demonstration; never a validated QMS record."
+}

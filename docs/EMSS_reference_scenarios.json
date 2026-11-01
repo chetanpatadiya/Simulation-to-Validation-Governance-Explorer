@@ -1,0 +1,58 @@
+{
+  "schema_version": "SVG-SCENARIO-0.1-draft",
+  "note": "Demonstration-only fixtures. Only scenario A references published public aggregate metrics; all other values are illustrative or synthetic. No validated software implementation is implied.",
+  "scenarios": [
+    {
+      "id": "A-RSM-PREDICTION-GAP",
+      "provenance": "public_aggregate_paper_benchmark",
+      "claim": "Recommend a candidate heat-sealing process window from a seal-strength RSM",
+      "lifecycle_phase": "process_development",
+      "requested_level": 3,
+      "claim_alignment": {"output_alignment": "DIRECT", "mechanism_coverage": "FULL", "cou_scope": "WITHIN"},
+      "models": [{"id": "RSM_1", "class": "statistical", "active": true, "published_r_squared_percent": 78.58, "published_predicted_r_squared_percent": 0.0, "lack_of_fit": "significant", "verified_evidence_through_level": 2}],
+      "interfaces": [],
+      "expected": {"evidence_supported_level": 2, "disposition": "DOWNGRADE_REQUIRED", "allowed_use": "Prioritize physical tests only", "physical_validation_status": "REQUIRED_FOR_FINAL_PROCESS_DECISION"}
+    },
+    {
+      "id": "B-STRENGTH-IS-NOT-INTEGRITY",
+      "provenance": "synthetic_policy_fixture",
+      "claim": "Sterile barrier system has no continuous seal leak pathways",
+      "lifecycle_phase": "design_verification",
+      "requested_level": 3,
+      "claim_alignment": {"output_alignment": "INDIRECT", "mechanism_coverage": "PARTIAL", "cou_scope": "WITHIN"},
+      "models": [{"id": "STRENGTH_RSM", "class": "statistical", "active": true, "hypothetical_supported_level_for_strength_claim": 3}],
+      "interfaces": [],
+      "expected": {"claim_specific_level": null, "disposition": "CLAIM_NOT_SUPPORTED_OR_REFRAME", "evidence_gap": "Independent, relevant sterile-barrier integrity assessment"}
+    },
+    {
+      "id": "C-COUPLED-ACTIVE-PATH",
+      "provenance": "synthetic_policy_fixture",
+      "claim": "Recommend candidate window with operational feasibility supported by coupled models",
+      "lifecycle_phase": "process_development",
+      "requested_level": 3,
+      "claim_alignment": {"output_alignment": "DIRECT", "mechanism_coverage": "FULL", "cou_scope": "WITHIN"},
+      "models": [
+        {"id": "RSM", "class": "statistical", "active": true, "supported_level": 3},
+        {"id": "DES", "class": "DES", "active": true, "supported_level": 1},
+        {"id": "INSPECTION", "class": "AI", "active": false, "supported_level": 0}
+      ],
+      "interfaces": [{"id": "RSM_TO_DES", "active": true, "supported_level": 2}],
+      "expected": {"evidence_supported_level": 1, "disposition": "DOWNGRADE_REQUIRED", "limiting_active_component": "DES"}
+    },
+    {
+      "id": "D-EQUIPMENT-FAMILY-BOUND",
+      "provenance": "synthetic_as_in_paper",
+      "comparison_scope": "Center point only; not complete operating window",
+      "units": "lb",
+      "alpha": 0.05,
+      "equivalence_margin_delta": 2.0,
+      "assumptions": "Independent groups, equal assumed SD; use Welch TOST",
+      "instances": [
+        {"id": "E1", "mean": 26.0, "sd": 1.5, "n": 30},
+        {"id": "E2", "mean": 25.2, "sd": 1.5, "n": 30},
+        {"id": "E3", "mean": 24.4, "sd": 1.5, "n": 30}
+      ],
+      "expected": {"E1_E2": "EQUIVALENCE_ESTABLISHED", "E2_E3": "EQUIVALENCE_ESTABLISHED", "E1_E3": "NOT_ESTABLISHED", "family_transfer": "BLOCKED", "E1_E3_90pct_CI_approx": [0.95, 2.25]}
+    }
+  ]
+}

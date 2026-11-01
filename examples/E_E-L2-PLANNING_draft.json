@@ -1,0 +1,140 @@
+{
+  "reportType": "DRAFT_MODEL_USE_EVIDENCE_ROUTING",
+  "methodVersion": "SVG-ALG-001/0.1.0",
+  "scenario": {
+    "schemaVersion": "SVG-0.1",
+    "id": "E-L2-PLANNING",
+    "title": "Synthetic: bounded model use for test planning",
+    "provenance": "SYNTHETIC",
+    "phase": "process_development",
+    "requirementId": "EXAMPLE-REQ-01",
+    "requirementText": "Define and verify relevant sterile barrier packaging performance for the product and process.",
+    "acceptanceBasis": "Example criteria only — replace with approved design inputs before real use.",
+    "claim": "Prioritize experimental sealing conditions for physical DOE.",
+    "modelOutput": "Relative predicted seal-strength response across the studied coded input range.",
+    "requestedLevel": 2,
+    "alignment": {
+      "outputAlignment": "DIRECT",
+      "mechanismCoverage": "FULL",
+      "couScope": "WITHIN",
+      "rationale": "Illustrative assumption confined to the described claim, output and tested domain."
+    },
+    "priority": {
+      "influence": 3,
+      "uncertainty": 3,
+      "consequence": 3,
+      "rationale": "Illustrative review-priority entries."
+    },
+    "models": [
+      {
+        "id": "EXPLORATORY-RSM",
+        "kind": "statistical",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "DEMO-EXPLORATORY-RSM-GATE-L0 (illustrative reviewer reference only)",
+          "DEMO-EXPLORATORY-RSM-GATE-L1 (illustrative reviewer reference only)",
+          "DEMO-EXPLORATORY-RSM-GATE-L2 (illustrative reviewer reference only)",
+          "DEMO-EXPLORATORY-RSM-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-EXPLORATORY-RSM-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Illustrative reviewer-entered assessment — not independent model qualification."
+      }
+    ],
+    "interfaces": [],
+    "comparability": {
+      "enabled": false,
+      "transferRequired": false,
+      "delta": 2,
+      "alpha": 0.05,
+      "units": "lb",
+      "conditions": "",
+      "marginRationale": "",
+      "instances": [
+        {
+          "id": "E1",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E2",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        }
+      ]
+    },
+    "obligations": [
+      {
+        "id": "doe",
+        "title": "Physical DOE / process-window investigation",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "limits",
+        "title": "Confirm candidate settings and relevant boundary conditions",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      }
+    ],
+    "changeTriggers": "Material, tooling, equipment, data, algorithm or acceptance-criterion changes",
+    "exclusions": "No test waiver, product release or autonomous compliance decision."
+  },
+  "evaluation": {
+    "methodVersion": "SVG-ALG-001/0.1.0",
+    "scenarioId": "E-L2-PLANNING",
+    "priority": 27,
+    "comparison": {
+      "enabled": false,
+      "required": false,
+      "status": "NOT_REQUESTED",
+      "pairs": [],
+      "warnings": []
+    },
+    "tasks": {
+      "total": 2,
+      "open": 2,
+      "reviewed": 0,
+      "unresolved": [
+        "Physical DOE / process-window investigation",
+        "Confirm candidate settings and relevant boundary conditions"
+      ]
+    },
+    "gaps": [],
+    "warnings": [
+      "Model EXPLORATORY-RSM is capped at L2: Candidate recommendation gate is NOT_EVALUATED."
+    ],
+    "path": [
+      {
+        "type": "Model",
+        "id": "EXPLORATORY-RSM",
+        "level": 2,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "NOT_EVALUATED",
+          "NOT_EVALUATED"
+        ]
+      }
+    ],
+    "evidenceMax": 2,
+    "proposedLevel": 2,
+    "disposition": "PROPOSED_WITHIN_EVIDENCE",
+    "explanation": "The active-path evidence supports a proposed L2 model-use classification within the stated claim and context. This is not validation approval or a test waiver.",
+    "scope": "Decision-support draft only. Human review and applicable physical evidence remain necessary."
+  },
+  "disclaimer": "Research-only synthetic or public aggregate demonstration; never a validated QMS record."
+}

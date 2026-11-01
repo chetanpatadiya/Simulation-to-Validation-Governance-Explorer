@@ -1,0 +1,145 @@
+{
+  "reportType": "DRAFT_MODEL_USE_EVIDENCE_ROUTING",
+  "methodVersion": "SVG-ALG-001/0.1.0",
+  "scenario": {
+    "schemaVersion": "SVG-0.1",
+    "id": "A-RSM-PREDICTION-GAP",
+    "title": "Public benchmark: strong fit, weak prediction",
+    "provenance": "PUBLIC_AGGREGATE",
+    "phase": "process_development",
+    "requirementId": "EXAMPLE-REQ-01",
+    "requirementText": "Define and verify relevant sterile barrier packaging performance for the product and process.",
+    "acceptanceBasis": "Example criteria only — replace with approved design inputs before real use.",
+    "claim": "Recommend a candidate heat-sealing window using a seal-strength response surface.",
+    "modelOutput": "Predicted seal strength from coded temperature, dwell, pressure and material temperature.",
+    "requestedLevel": 3,
+    "alignment": {
+      "outputAlignment": "DIRECT",
+      "mechanismCoverage": "FULL",
+      "couScope": "WITHIN",
+      "rationale": "Illustrative assumption confined to the described claim, output and tested domain."
+    },
+    "priority": {
+      "influence": 4,
+      "uncertainty": 4,
+      "consequence": 5,
+      "rationale": "Synthetic ordinal ratings for review-priority illustration; not a device-risk estimate."
+    },
+    "models": [
+      {
+        "id": "SEAL-RSM",
+        "kind": "statistical",
+        "active": true,
+        "gates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "FAIL",
+          "NOT_EVALUATED"
+        ],
+        "evidenceRefs": [
+          "EMSS 2026 manuscript Sections 1–3 (documented context)",
+          "Minitab public response-surface DOE example (published model)",
+          "Minitab published fit diagnostics: R² 78.58%; predicted R² 0.00%",
+          "DEMO-SEAL-RSM-GATE-L3 (illustrative reviewer reference only)",
+          "DEMO-SEAL-RSM-GATE-L4 (illustrative reviewer reference only)"
+        ],
+        "notes": "Published benchmark: R² 78.58%, predicted R² 0.00%, significant lack of fit. Author-proposed L2 interpretation from EMSS manuscript; not independently reproduced from raw data."
+      }
+    ],
+    "interfaces": [],
+    "comparability": {
+      "enabled": false,
+      "transferRequired": false,
+      "delta": 2,
+      "alpha": 0.05,
+      "units": "lb",
+      "conditions": "",
+      "marginRationale": "",
+      "instances": [
+        {
+          "id": "E1",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        },
+        {
+          "id": "E2",
+          "mean": 26,
+          "sd": 1.5,
+          "n": 30
+        }
+      ]
+    },
+    "obligations": [
+      {
+        "id": "doe",
+        "title": "Physical DOE / process-window investigation",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      },
+      {
+        "id": "limits",
+        "title": "Confirm candidate settings and relevant boundary conditions",
+        "category": "Process development",
+        "status": "OPEN",
+        "recordRef": "",
+        "rationale": ""
+      }
+    ],
+    "changeTriggers": "New material, sealing tool, factor range or new independent predictive dataset.",
+    "exclusions": "No test waiver, product release or autonomous compliance decision."
+  },
+  "evaluation": {
+    "methodVersion": "SVG-ALG-001/0.1.0",
+    "scenarioId": "A-RSM-PREDICTION-GAP",
+    "priority": 80,
+    "comparison": {
+      "enabled": false,
+      "required": false,
+      "status": "NOT_REQUESTED",
+      "pairs": [],
+      "warnings": []
+    },
+    "tasks": {
+      "total": 2,
+      "open": 2,
+      "reviewed": 0,
+      "unresolved": [
+        "Physical DOE / process-window investigation",
+        "Confirm candidate settings and relevant boundary conditions"
+      ]
+    },
+    "gaps": [
+      {
+        "code": "LEVEL_CAP",
+        "message": "Unsupported L3 request; maximum is L2."
+      }
+    ],
+    "warnings": [
+      "Model SEAL-RSM is capped at L2: Candidate recommendation gate is FAIL."
+    ],
+    "path": [
+      {
+        "type": "Model",
+        "id": "SEAL-RSM",
+        "level": 2,
+        "gateStates": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "FAIL",
+          "NOT_EVALUATED"
+        ]
+      }
+    ],
+    "evidenceMax": 2,
+    "proposedLevel": 2,
+    "disposition": "DOWNGRADE_REQUIRED",
+    "explanation": "L3 was requested, but the active-path maximum is L2. Limiting dependencies: Model SEAL-RSM. Proposed narrower use: Prioritize physical test conditions.",
+    "scope": "Decision-support draft only. Human review and applicable physical evidence remain necessary."
+  },
+  "disclaimer": "Research-only synthetic or public aggregate demonstration; never a validated QMS record."
+}
